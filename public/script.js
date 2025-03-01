@@ -7,7 +7,7 @@ function validateCredentials() {
 
     if (password === 'admin' && validateEmail(email)) {
         // Make an API call to send OTP
-        fetch('http://localhost:3000/send-otp', { // Use the correct URL of your backend server
+        fetch('https://vercel.com/confused-engineers-projects/otpui/BuvUbA34Dr1xfgSiYtYVshUrGsKx', { // Use the correct URL of your backend server
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
