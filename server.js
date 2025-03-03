@@ -5,8 +5,6 @@ const sgMail = require('@sendgrid/mail');
 const path = require('path');
 const cors = require('cors');
 
-
-
 // Load environment variables from .env file
 dotenv.config();
 
