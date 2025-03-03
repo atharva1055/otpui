@@ -19,23 +19,24 @@ app.use(bodyParser.json());
 
 // Enable CORS with specific origin
 app.use(cors({
-    origin: 'https://otpui.vercel.app', // Replace with your frontend URL
-    methods: 'GET,POST',
+    origin: ['https://otpui.vercel.app', 'https://otpui-confused-engineers-projects.vercel.app'], // Allow both frontend & backend domains
+    methods: 'GET,POST,OPTIONS',
     credentials: true
 }));
 
 // Handle preflight requests
-app.options('/send-otp', cors({
-    origin: 'https://otpui.vercel.app',
-    methods: 'GET,POST',
-    credentials: true
-}));
+app.options('*', cors());
+   
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API endpoint to send OTP
 app.post('/send-otp', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "https://otpui.vercel.app"); // Explicitly allow frontend
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
     const { email, name } = req.body;
     const otp = generateOTP();
 
