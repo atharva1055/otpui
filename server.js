@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const sgMail = require('@sendgrid/mail');
 const path = require('path');
-const cors = require('cors'); 
+const cors = require('cors');
+
+
 
 // Load environment variables from .env file
 dotenv.config();
@@ -17,8 +19,12 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Enable CORS
-app.use(cors());
+// Enable CORS with specific origin
+app.use(cors({
+    origin: 'https://otpui.vercel.app', // Replace with your frontend URL
+    methods: 'GET,POST',
+    credentials: true
+}));
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
