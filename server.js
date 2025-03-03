@@ -25,7 +25,7 @@ app.use(cors({
 }));
 
 // Handle preflight requests
-app.options('*', cors({
+app.options('/send-otp', cors({
     origin: 'https://otpui.vercel.app',
     methods: 'GET,POST',
     credentials: true
