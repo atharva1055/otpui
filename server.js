@@ -24,6 +24,13 @@ app.use(cors({
     credentials: true
 }));
 
+// Handle preflight requests
+app.options('*', cors({
+    origin: 'https://otpui.vercel.app',
+    methods: 'GET,POST',
+    credentials: true
+}));
+
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
