@@ -8,6 +8,8 @@ const cors = require('cors');
 // Load environment variables from .env file
 dotenv.config();
 
+console.log('SendGrid API Key loaded:', process.env.SENDGRID_API_KEY ? 'Yes' : 'No');
+
 // Set up SendGrid
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
