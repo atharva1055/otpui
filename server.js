@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // Enable CORS with specific origin
 app.use(cors({
-    origin: ['https://otpui.vercel.app', 'https://otpui-confused-engineers-projects.vercel.app'], // Allow both frontend & backend domains
+    origin: ['https://otpui.vercel.app', 'https://otpui-production.up.railway.app'], // Allow both frontend & backend domains
     methods: 'GET,POST,OPTIONS',
     credentials: true
 }));
